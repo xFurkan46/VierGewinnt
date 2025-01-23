@@ -1,0 +1,32 @@
+
+
+table {
+    border-collapse: collapse;
+    margin: 20px auto;
+    border: 2px solid black;
+    background-color: blue;
+}
+
+td {
+    width: 80px;
+    height: 80px;
+    border: 2px solid black;
+    text-align: center;
+    vertical-align: middle;
+    background-color: rgb(255, 255, 255);
+    border-radius: 50%;
+    cursor: pointer;
+}
+/* comment */
+
+td.empty{
+    background-color: rgb(255, 255, 255);
+}
+
+td.player1 {
+    background-color: rgb(27, 175, 27);
+}
+
+td.player2 {
+    background-color: red;
+}
