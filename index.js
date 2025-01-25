@@ -49,6 +49,7 @@ cells.forEach((cell, index) => {
                     return;
                 }
                 currentPlayer = currentPlayer === 'player1' ? 'player2' : 'player1';  // wechselt den spieler
+                updateCurrentPlayerDisplay();                    //aktualisiert die Anzeige des aktuellen Spielers
                 return;
             }
         }
@@ -152,17 +153,47 @@ function checkDiagonalWin2() {
     return false;
 }
 
+document.getElementById('restart-button').addEventListener('click', resetGame);
+
+
+//cleart das board und setzt die Spielerzüge zurück
+function resetGame() {
+    cells.forEach(cell => {
+        cell.classList.remove('player1', 'player2', 'empty');
+        cell.classList.add('empty');
+    });
+    isGameOver = false; //setzt das Spiel zurück auf false
+    currentPlayer = 'player1'; //setzt den aktuellen Spieler zurück auf player1
+    //resetet player moves
+
+    player1Moves = 0;
+    player2Moves = 0;
+
+    updateCurrentPlayerDisplay();
+    console.log('Game Restarted');
+
+
+
+}
+
+
+function updateCurrentPlayerDisplay() {
+    const currentPlayerDisplay = document.getElementById('current-player');
+    document.getElementById('current-player-name').innerText = currentPlayer;
+}
+
+
 /*function updateMoveCounter() {
     if(currentPlayer === 'player1') {
         player1Moves++;
         player1Counte
     } else {
-} /*
+} 
 
 
 
 
-/*TODO: Restart Button
+/*TODO: Restart Button             -------------------------------schon gemacht
     gameOver statement True false  -------------------------------schon gemacht
     Counter von Spielerzügen
     Anzeige welche spieler dran ist

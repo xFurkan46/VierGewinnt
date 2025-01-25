@@ -19,6 +19,17 @@ td {
 }
 /* comment */
 
+#restart-button {
+    padding: 10px 20px;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+#current-player {
+    font-size: 20px;
+    margin: 20px;
+}
+
 td.empty{
     background-color: rgb(255, 255, 255);
 }
