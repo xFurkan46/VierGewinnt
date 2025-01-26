@@ -13,10 +13,21 @@
     <body>
           <!--comment -->
         <h1 style="text-align: center;">4 Gewinnt</h1>
+        <div id="win-counter" style="text-align: center; margin-top: 20px;">
+            <p>Player 1 Wins: <span id="player1-wins">0</span></p>
+            <p>Player 2 Wins: <span id="player2-wins">0</span></p>
+            <button id="reset-win-counter" style="margin-top: 10px;">Reset Win Counter</button>
+        </div>
+
         <div id="game-board"></div>
         <div id="current-player" style="text-align: center; margin-top: 20px;">
-            Current Player: <span id="current-player-name" style="font-weight: bold;">Player 1</span>
+            Current Player: <span id="current-player-name" style="font-weight: bold;"></span>
         </div>
+        <div id = "move-counter" style="text-align: center; margin-top: 20px;">
+            <p>Player 1 Moves: <span id="player1-moves">0</span></p>
+            <p>Player 2 Moves: <span id="player2-moves">0</span></p>
+        </div>
+
         
 
         <button id="restart-button" style="display: block; margin: 20px auto;">Restart Game</button>

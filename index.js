@@ -1,6 +1,7 @@
 const rows = 6;
 const cols = 7;
 
+
 const gameBoard = document.getElementById('game-board');
 //comment
 
@@ -48,6 +49,7 @@ cells.forEach((cell, index) => {
                     }, 100);
                     return;
                 }
+                makeMove(targetCell);
                 currentPlayer = currentPlayer === 'player1' ? 'player2' : 'player1';  // wechselt den spieler
                 updateCurrentPlayerDisplay();                    //aktualisiert die Anzeige des aktuellen Spielers
                 return;
@@ -155,6 +157,7 @@ function checkDiagonalWin2() {
 
 document.getElementById('restart-button').addEventListener('click', resetGame);
 
+window.addEventListener('load', resetGame);   // Initialisiere das Spiel beim Laden der Seite
 
 //cleart das board und setzt die Spielerzüge zurück
 function resetGame() {
@@ -162,41 +165,72 @@ function resetGame() {
         cell.classList.remove('player1', 'player2', 'empty');
         cell.classList.add('empty');
     });
-    isGameOver = false; //setzt das Spiel zurück auf false
-    currentPlayer = 'player1'; //setzt den aktuellen Spieler zurück auf player1
-    //resetet player moves
 
     player1Moves = 0;
     player2Moves = 0;
 
+    currentPlayer =  Math.random() < 0.5 ? 'player1' : 'player2'; //randomisiert welcher Spieler anfängt
+
+    updateMoveCounter();
     updateCurrentPlayerDisplay();
+
+    isGameOver = false; //setzt das Spiel zurück auf false
+
     console.log('Game Restarted');
-
-
-
 }
+
+currentPlayer =  Math.random() < 0.5 ? 'player1' : 'player2'; //randomisiert welcher Spieler anfängt
 
 
 function updateCurrentPlayerDisplay() {
-    const currentPlayerDisplay = document.getElementById('current-player');
-    document.getElementById('current-player-name').innerText = currentPlayer;
+    const currentPlayerName = currentPlayer === 'player1' ? 'Spieler 1 (Green)' : 'Spieler 2 (Red)';
+    document.getElementById('current-player-name').textContent = currentPlayerName;
 }
 
 
-/*function updateMoveCounter() {
-    if(currentPlayer === 'player1') {
+function updateMoveCounter() {
+    document.getElementById('player1-moves').textContent = `${player1Moves} (Green)`; //zeigt die Anzahl der Züge an von Spieler Red und Green
+    document.getElementById('player2-moves').textContent =  `${player2Moves} (Red)`; 
+}
+
+
+function makeMove(cell) {
+    if (currentPlayer === 'player1') {
         player1Moves++;
-        player1Counte
     } else {
-} 
+        player2Moves++;
+    }
+    updateMoveCounter();
+    updateCurrentPlayerDisplay();
+}
+
+
+// Win Counter
+let player1Moves = 0;
+let player2Moves = 0;
+
+document.getElementById('reset-win-counter').addEventListener('click', resetWinCounter);
+
+function resetWinCounter() {
+    player1Moves = 0;
+    player2Moves = 0;
+    updateMoveCounter();
+}
+
+function updateWinCounter() {
+    document.getElementById('player1-wins').textContent = `${player1Moves} (Green)`;
+    document.getElementById('player2-wins').textContent = `${player2Moves} (Red)`;
+}
+
+
 
 
 
 
 /*TODO: Restart Button             -------------------------------schon gemacht
     gameOver statement True false  -------------------------------schon gemacht
-    Counter von Spielerzügen
-    Anzeige welche spieler dran ist
+    Counter von Spielerzügen        -------------------------------schon gemacht
+    Anzeige welche spieler dran ist -------------------------------schon gemacht
     Win Counter für beide Spieler -mit reset button
     Design verbessern
     Local Storage für Win Counter, Spielerzüge, board

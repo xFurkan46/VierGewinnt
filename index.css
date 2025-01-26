@@ -30,6 +30,11 @@ td {
     margin: 20px;
 }
 
+#win-counter {
+    font-size: 20px;
+    margin: 20px;
+}
+
 td.empty{
     background-color: rgb(255, 255, 255);
 }
