@@ -1,5 +1,7 @@
 const rows = 6;
 const cols = 7;
+let player1Wins = 0;
+let player2Wins = 0;
 
 
 const gameBoard = document.getElementById('game-board');
@@ -45,6 +47,15 @@ cells.forEach((cell, index) => {
                 if (checkWin()) {                                       //wenn ein spieler gewinnt, das Spiel beenden oder neu starten
                     setTimeout(() => {
                         alert(`${currentPlayer} gewinnt!`);
+                        
+                        if (currentPlayer === 'player1') {          //Zählt die Siege von jedem Spieler
+                            player1Wins++;
+                        } else {
+                            player2Wins++;
+                        }
+                        updateWinCounter();
+                        saveToLocalStorage();
+
                         isGameOver = true;                              //Spiel beendet keine weiteren Züge möglich
                     }, 100);
                     return;
@@ -155,9 +166,15 @@ function checkDiagonalWin2() {
     return false;
 }
 
-document.getElementById('restart-button').addEventListener('click', resetGame);
+document.getElementById('restart-button').addEventListener('click', () => {
+    resetGame();
+    saveToLocalStorage();
+});
 
-window.addEventListener('load', resetGame);   // Initialisiere das Spiel beim Laden der Seite
+window.addEventListener('load', () => {          // Initialisiere das Spiel beim Laden der Seite
+    loadFromLocalStorage();
+    resetGame();
+});                             
 
 //cleart das board und setzt die Spielerzüge zurück
 function resetGame() {
@@ -193,6 +210,12 @@ function updateMoveCounter() {
     document.getElementById('player2-moves').textContent =  `${player2Moves} (Red)`; 
 }
 
+function updateWinCounter() {
+    document.getElementById('player1-wins').textContent = player1Wins + '(Green)';
+    document.getElementById('player2-wins').textContent = player2Wins + '(Red)';
+}
+
+
 
 function makeMove(cell) {
     if (currentPlayer === 'player1') {
@@ -202,25 +225,40 @@ function makeMove(cell) {
     }
     updateMoveCounter();
     updateCurrentPlayerDisplay();
+    saveToLocalStorage();
 }
 
-
 // Win Counter
-let player1Moves = 0;
-let player2Moves = 0;
-
-document.getElementById('reset-win-counter').addEventListener('click', resetWinCounter);
+document.getElementById('reset-win-counter').addEventListener('click',() => { 
+    resetWinCounter();
+    saveToLocalStorage();
+});
 
 function resetWinCounter() {
-    player1Moves = 0;
-    player2Moves = 0;
+    player1Wins = 0;
+    player2Wins = 0;
+    updateWinCounter();
+    saveToLocalStorage();
+}
+
+function saveToLocalStorage () {
+    localStorage.setItem('player1Wins', player1Wins);
+    localStorage.setItem('player2Wins', player2Wins);
+    localStorage.setItem('player1Moves', player1Moves);
+    localStorage.setItem('player2Moves', player2Moves);
+}
+
+function loadFromLocalStorage() {
+    player1Wins = parseInt(localStorage.getItem('player1Wins')) || 0;
+    player2Wins = parseInt(localStorage.getItem('player2Wins')) || 0;
+    player1Moves = parseInt(localStorage.getItem('player1Moves')) || 0;
+    player2Moves = parseInt(localStorage.getItem('player2Moves')) || 0;
+    updateWinCounter();
     updateMoveCounter();
 }
 
-function updateWinCounter() {
-    document.getElementById('player1-wins').textContent = `${player1Moves} (Green)`;
-    document.getElementById('player2-wins').textContent = `${player2Moves} (Red)`;
-}
+
+
 
 
 
@@ -231,9 +269,9 @@ function updateWinCounter() {
     gameOver statement True false  -------------------------------schon gemacht
     Counter von Spielerzügen        -------------------------------schon gemacht
     Anzeige welche spieler dran ist -------------------------------schon gemacht
-    Win Counter für beide Spieler -mit reset button
-    Design verbessern
-    Local Storage für Win Counter, Spielerzüge, board
+    Win Counter für beide Spieler -mit reset button  -------------------------------schon gemacht
+    Design verbessern                       -------------------------------schon ein bisschen gemacht
+    Local Storage für Win Counter, Spielerzüge, board  ------------------------------- Win Counter und Spielerzüge schon gemacht spielerzüge funktioniert nicht ganz
     Ai hinzufügen
     Animationen hinzufügen
     */

@@ -1,23 +1,48 @@
 
-
 table {
-    border-collapse: collapse;
+    border-collapse: separate;
+    border-spacing: 10px;                        
     margin: 20px auto;
-    border: 2px solid black;
-    background-color: blue;
+    background-color: #1e90ff;                
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);       /* Subtiler Schatten für Tiefe hinzugefügt */
+    border-radius: 10px;                              /* Abgerundete Ecken für ein glatteres Aussehen */
+    overflow: hidden;                                 /* Stellt sicher dass abgerundete Ecken sichtbar sind */
+  /*  transform: translateX(-150px);                     /* Verschiebt den Tisch etwas nach links */
 }
+
+body {
+    background: linear-gradient(to bottom, #569eb6, #f59e9e);
+}
+
+
+
+h1 {
+    text-align: center;
+    font-size: 36px;
+    color: #000000;
+    margin-top: 20px;
+    text-shadow: black;
+}
+
 
 td {
-    width: 80px;
-    height: 80px;
-    border: 2px solid black;
-    text-align: center;
-    vertical-align: middle;
-    background-color: rgb(255, 255, 255);
-    border-radius: 50%;
-    cursor: pointer;
+    width: 80px;                                      /* Breite der Zellen */
+    height: 80px;                                     /* Höhe der Zellen */
+    border: 2px solid black;                          /* Schwarzer Rand um die Zellen */
+    border-radius: 50%;                               
+    cursor: pointer;                                  
+    transition: background-color 0.3s ease, transform 0.3s ease; /* Übergangseffekte für Hintergrundfarbe und Skalierung */
+}
+
+
+
+
+td:hover {
+    background-color: rgb(200, 200, 200);
+    transform: scale(1.1);
 }
 /* comment */
+
 
 #restart-button {
     padding: 10px 20px;
@@ -33,6 +58,7 @@ td {
 #win-counter {
     font-size: 20px;
     margin: 20px;
+    float: left;
 }
 
 td.empty{
@@ -45,4 +71,18 @@ td.player1 {
 
 td.player2 {
     background-color: red;
+} 
+
+button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    background-color: #235285;
+    color: #ffffff;
+    cursor: pointer;
+    margin: 5px;
+}
+
+button:hover {
+    background-color: #0056b3;
 }
