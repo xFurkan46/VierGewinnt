@@ -5,6 +5,11 @@ let player2Wins = 0;
 
 
 const gameBoard = document.getElementById('game-board');
+const modal = document.getElementById('victory-modal');
+const closeButton = document.querySelector('.close-button');
+const victoryMessage = document.getElementById('victory-message');
+const restartGameButton = document.getElementById('restart-game-button');
+const trophyImage = document.getElementById('trophy-image');
 //comment
 
 
@@ -15,18 +20,18 @@ table.setAttribute('cellpadding', '0');
 
 const tbody = document.createElement('tbody');
 
-for (let i = 0; i < rows; i++) {
-    const tr = document.createElement('tr');
+for (let i = 0; i < rows; i++) {                        //erstellt die Zeilen
+    const tr = document.createElement('tr');            
     for (let j = 0; j < cols; j++) {
-        const td = document.createElement('td');
-        td.classList.add('empty');
+        const td = document.createElement('td');        
+        td.classList.add('empty');                      //fügt der Zelle die Klasse empty hinzu
         tr.appendChild(td);
     }
     tbody.appendChild(tr);
 }
 
-table.appendChild(tbody);
-gameBoard.appendChild(table);
+table.appendChild(tbody);                        //erstellt das Spielfeld
+gameBoard.appendChild(table);                   //fügt das Spielfeld in das HTML ein
 
 let currentPlayer = 'player1';
 let isGameOver = false;                     //Schaut das Spielzustand an
@@ -43,11 +48,18 @@ cells.forEach((cell, index) => {
             const targetCell = cells[rowIndex * cols + colIndex];
             if (targetCell.classList.contains('empty')) {
                 targetCell.classList.remove('empty');
-                targetCell.classList.add(currentPlayer);
+                targetCell.classList.add(currentPlayer , 'fall');
+
+                makeMove(targetCell);
+
                 if (checkWin()) {                                       //wenn ein spieler gewinnt, das Spiel beenden oder neu starten
                     setTimeout(() => {
-                        alert(`${currentPlayer} gewinnt!`);
-                        
+                        victoryMessage.textContent = `Victory for ${currentPlayer === 'player1' ? 'Player 1 (Green)' : 'Player 2 (Red)'}!`;
+                        modal.style.display = 'block';                   //zeigt die Modal Box an
+                        trophyImage.style.display = 'block';             //zeigt das Bild an
+
+                        triggerConfetti();                              //feiert den Sieg mit Konfetti
+
                         if (currentPlayer === 'player1') {          //Zählt die Siege von jedem Spieler
                             player1Wins++;
                         } else {
@@ -60,7 +72,13 @@ cells.forEach((cell, index) => {
                     }, 100);
                     return;
                 }
-                makeMove(targetCell);
+                if (isBoardFull()) {                            //Wenn das Board voll ist und kein Spieler gewonnen hat, ist es ein Unentschieden
+                    setTimeout(() => {
+                        alert('Unentschieden!');                //alert box für unentschieden
+                        isGameOver = true;
+                    }, 100);
+                    return;
+                }
                 currentPlayer = currentPlayer === 'player1' ? 'player2' : 'player1';  // wechselt den spieler
                 updateCurrentPlayerDisplay();                    //aktualisiert die Anzeige des aktuellen Spielers
                 return;
@@ -179,7 +197,7 @@ window.addEventListener('load', () => {          // Initialisiere das Spiel beim
 //cleart das board und setzt die Spielerzüge zurück
 function resetGame() {
     cells.forEach(cell => {
-        cell.classList.remove('player1', 'player2', 'empty');
+        cell.classList.remove('player1', 'player2', 'fall');
         cell.classList.add('empty');
     });
 
@@ -229,17 +247,22 @@ function makeMove(cell) {
 }
 
 // Win Counter
-document.getElementById('reset-win-counter').addEventListener('click',() => { 
+document.getElementById('reset-win-counter').addEventListener('click',() => {           //reset button für die Siege
     resetWinCounter();
     saveToLocalStorage();
 });
 
-function resetWinCounter() {
+function resetWinCounter() {            //setzt die Siege der Spieler zurück
     player1Wins = 0;
     player2Wins = 0;
     updateWinCounter();
     saveToLocalStorage();
 }
+
+function isBoardFull() {
+    return [...cells].every(cell => !cell.classList.contains('empty'));         //schaut ob das Board voll ist
+}
+
 
 function saveToLocalStorage () {
     localStorage.setItem('player1Wins', player1Wins);
@@ -248,7 +271,7 @@ function saveToLocalStorage () {
     localStorage.setItem('player2Moves', player2Moves);
 }
 
-function loadFromLocalStorage() {
+function loadFromLocalStorage() {                                       
     player1Wins = parseInt(localStorage.getItem('player1Wins')) || 0;
     player2Wins = parseInt(localStorage.getItem('player2Wins')) || 0;
     player1Moves = parseInt(localStorage.getItem('player1Moves')) || 0;
@@ -257,6 +280,29 @@ function loadFromLocalStorage() {
     updateMoveCounter();
 }
 
+function triggerConfetti() {
+    confetti({
+        particleCount: 100,
+        spread: 70,
+        origin: { y: 0.6 }
+    });
+}
+
+
+closeButton.addEventListener('click', () => {           //schließt das modal
+    modal.style.display = 'none';
+});
+
+window.addEventListener('click', (event) => {       //schließt das modal
+    if (event.target === modal) {
+        modal.style.display = 'none';
+    }
+});
+
+restartGameButton.addEventListener('click', () => {         //restart button
+    modal.style.display = 'none';
+    resetGame();
+});
 
 
 
@@ -271,7 +317,7 @@ function loadFromLocalStorage() {
     Anzeige welche spieler dran ist -------------------------------schon gemacht
     Win Counter für beide Spieler -mit reset button  -------------------------------schon gemacht
     Design verbessern                       -------------------------------schon ein bisschen gemacht
-    Local Storage für Win Counter, Spielerzüge, board  ------------------------------- Win Counter und Spielerzüge schon gemacht spielerzüge funktioniert nicht ganz
+    Local Storage für Win Counter, Spielerzüge, board  ------------------------------- Win Counter und Spielerzüge schon gemacht 
     Ai hinzufügen
-    Animationen hinzufügen
+    Animationen hinzufügen                                  -------------------------------schon gemacht
     */
