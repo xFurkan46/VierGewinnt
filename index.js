@@ -87,9 +87,16 @@ cells.forEach((cell, index) => {
     });
 });
 
+
+
+
+
+
 function checkWin() {
     return checkHorizontalWin() || checkVerticalWin() || checkDiagonalWin() || checkDiagonalWin2();
 }
+
+
 
 
 //funktion check horizontal 
@@ -303,6 +310,12 @@ restartGameButton.addEventListener('click', () => {         //restart button
     modal.style.display = 'none';
     resetGame();
 });
+
+function highlightWinningCells(winningCells) {
+    winningCells.forEach(cell => {
+        cell.classList.add('winning-cell');
+    });
+}
 
 
 
