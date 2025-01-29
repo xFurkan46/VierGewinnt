@@ -10,6 +10,8 @@ const closeButton = document.querySelector('.close-button');
 const victoryMessage = document.getElementById('victory-message');
 const restartGameButton = document.getElementById('restart-game-button');
 const trophyImage = document.getElementById('trophy-image');
+
+
 //comment
 
 
