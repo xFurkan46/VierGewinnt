@@ -335,4 +335,10 @@ function highlightWinningCells(winningCells) {
     Local Storage für Win Counter, Spielerzüge, board  ------------------------------- Win Counter und Spielerzüge schon gemacht 
     Ai hinzufügen
     Animationen hinzufügen                                  -------------------------------schon gemacht
+    Responsive Design
+    Kommentare hinzufügen
+    multiple .JS datein und export (Wincondition, Local Storage, Game Logic)
+    ... CSS
+
+
     */
