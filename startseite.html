@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Minispiele Hub</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background: #f0f0f0;
+        }
+
+        h1 {
+            color: #333;
+        }
+
+        .game-container {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .game-card {
+            background: white;
+            width: 200px;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            text-decoration: none;
+            color: #333;
+            transition: transform 0.2s;
+        }
+
+        .game-card:hover {
+            transform: scale(1.05);
+        }
+
+        .game-card h2 {
+            font-size: 1.5em;
+            color: #444;
+        }
+
+        .game-card p {
+            color: #666;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Willkommen bei den Minispielen!</h1>
+    <div class="game-container">
+        <a href="index.html" class="game-card">
+            <h2>4 Gewinnt</h2>
+            <p>Spiele das klassische Vier Gewinnt!</p>
+        </a>
+        <a href="tictactoe.html" class="game-card">
+            <h2>Tic-Tac-Toe</h2>
+            <p>Teste deine Strategie bei Tic-Tac-Toe!</p>
+        </a>
+    </div>
+
+</body>
+</html>

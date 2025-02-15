@@ -7,7 +7,8 @@ table {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);       /* Subtiler Schatten für Tiefe hinzugefügt */
     border-radius: 10px;                              /* Abgerundete Ecken für ein glatteres Aussehen */
     overflow: hidden;                                 /* Stellt sicher dass abgerundete Ecken sichtbar sind */
-  /*  transform: translateX(-150px);                     /* Verschiebt den Tisch etwas nach links */
+    position: relative;                               /* Position relativ zum Elternelement */
+    /*  transform: translateX(-150px);                     /* Verschiebt den Tisch etwas nach links */
 }
 
 body {
@@ -77,8 +78,10 @@ td:hover {
 }
 /*Flex,%,VH,VW,*/
 #game-board {
-    margin-right: 200px;
-    margin-top: 10px;
+    width: 100%;
+    max-width: 700px;   /* Maximale Breite des Spielfelds */
+    aspect-ratio: 7 / 6;   /* Seitenverhältnis für 7 Spalten und 6 Zeilen */
+    margin: 0 auto;
 }
 /*Flex,%,VH,VW*/
 #sidebar {
