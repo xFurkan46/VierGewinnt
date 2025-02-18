@@ -1,0 +1,210 @@
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #5f7db6 25%, #cfdef3 100%);
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    justify-content: center;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 20px;
+}
+
+.x-player {
+    color: #ff4c4c; /* Farbe für Spieler X */
+}
+
+.o-player {
+    color: #4c9aff; /* Farbe für Spieler O */
+}
+
+h1 {
+    color: #333;
+    margin-bottom: 20px;
+    font-size: 2.5em;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.board {
+    display: grid;
+    grid-template-columns: repeat(3, 100px);
+    grid-template-rows: repeat(3, 100px);
+    gap: 10px;
+    margin: 20px;
+    padding: 10px;
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.cell {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100px;
+    height: 100px;
+    background: white;
+    border: 2px solid #333;
+    font-size: 3em; /* Erhöhte Schriftgröße für X und O */
+    cursor: pointer;
+    border-radius: 10px;
+}
+
+.cell:hover {
+    background: #d1e7ff;
+    transform: scale(1.05);
+}
+
+#restart-button {
+    padding: 10px 20px;
+    margin-top: 10px;
+    background: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#restart-button:hover {
+    background: #45a049;
+    transform: scale(1.05);
+}
+
+#status {
+    margin-top: 20px;
+    font-size: 1.2em;
+    color: #333;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+#back-to-selection {
+    text-align: center;
+    margin-top: 20px;
+}
+
+#back-to-selection a {
+    display: inline-block;
+    padding: 10px 20px;
+    text-decoration: none;
+    color: white;
+    background: #4CAF50;
+    font-size: 20px;
+    border-radius: 5px;
+}
+
+#back-to-selection a:hover {
+    background: #45a049;
+    transform: scale(1.05);
+}
+
+button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    background-color: #235285;
+    color: #ffffff;
+    cursor: pointer;
+    margin: 5px;
+}
+
+button:hover {
+    background-color: #0056b3;
+    transform: scale(1.05);
+}
+
+.modal {
+    display: none; /* Standardmäßig ausgeblendet */
+    position: fixed; /* Bleibt an Ort und Stelle */
+    z-index: 1; /* Über allen anderen Elementen */
+    left: 0;
+    top: 0;
+    width: 100%; /* Volle Breite */
+    height: 100%; /* Volle Höhe */
+    overflow: auto; /* Scrollen bei Bedarf */
+    background-color: rgba(0,0,0,0.4); /* Schwarzer Hintergrund mit Transparenz */
+}
+
+.modal-content {
+    background-color: #fefefe;
+    margin: 15% auto; /* 15% vom oberen Rand und zentriert */
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%; /* Kann je nach Bildschirmgröße variieren */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtiler Schatten für Tiefe */
+    border-radius: 10px; /* Abgerundete Ecken für ein glatteres Aussehen */
+    text-align: center; /* Text zentrieren */
+}
+
+.close-button {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close-button:hover,
+.close-button:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+#victory-message {
+    font-size: 24px;
+    font-weight: bold;
+    margin-top: 20px;
+}
+
+#trophy-image {
+    width: 100px;
+    height: auto;
+    margin: 20px auto 0; /* Bild zentrieren */
+}
+
+.win-counter {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 10px;
+    background: #c3dddd;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    position: fixed; /* Ändern zu fixed, um es stabil zu halten */
+    right: 35px; /* Positionieren rechts vom Spielfeld */
+    top: 50%; /* Vertikal zentrieren */
+    transform: translateY(-50%); /* Perfekte Zentrierung */
+    min-width: 150px; /* Mindestbreite sicherstellen */
+}
+
+@media (max-width: 768px) {
+    .win-counter {
+        position: static; /* Ändern zu static für kleine Bildschirme */
+        transform: none; /* Transform entfernen */
+        margin-top: 20px; /* Etwas Abstand nach oben hinzufügen */
+    }
+}
+
+.win-counter h2 {
+    margin: 0;
+    font-size: 1.5em;
+    color: #333;
+}
+
+.win-counter .player {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    margin-top: 10px;
+}
+
+.win-counter .player span {
+    font-size: 1.2em;
+    color: #333;
+}

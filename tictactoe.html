@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tic-Tac-Toe</title>
+    <link rel="stylesheet" href="tictactoe.css">
+    <script src="tictactoe.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.4.0/dist/confetti.browser.min.js"></script>
+</head>
+<body>
+    <h1>Tic-Tac-Toe</h1>
+    <div class="container">
+        <div class="board" id="board">
+            <div class="cell" data-index="0"></div>
+            <div class="cell" data-index="1"></div>
+            <div class="cell" data-index="2"></div>
+            <div class="cell" data-index="3"></div>
+            <div class="cell" data-index="4"></div>
+            <div class="cell" data-index="5"></div>
+            <div class="cell" data-index="6"></div>
+            <div class="cell" data-index="7"></div>
+            <div class="cell" data-index="8"></div>
+        </div>
+        <div class="win-counter">
+            <h2>Win Counter</h2>
+            <div class="player">
+                <span>Player X Wins:</span>
+                <span id="player-x-wins">0</span>
+            </div>
+            <div class="player">
+                <span>Player O Wins:</span>
+                <span id="player-o-wins">0</span>
+            </div>
+            <button id="reset-win-counter">Reset Win Counter</button>
+        </div>
+    </div>
+    <button id="restart-button">Neustart</button>
+    <p id="status">Spieler X ist am Zug!</p>
+    <div id="back-to-selection">
+        <a href="startseite.html">Zurück zur Minispiel-Auswahl</a>
+    </div>
+
+    <div id="victory-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-button">&times;</span>
+            <p id="victory-message"></p>
+            <img id="trophy-image" src="trophy.png" alt="Trophy">
+            <button id="restart-game-button">Play Again</button>
+        </div>
+    </div>
+</body>
+</html>
