@@ -130,3 +130,7 @@ window.addEventListener('load', () => {
     loadFromLocalStorage();
     resetGame();
 });
+
+function toggleDarkMode() {
+    document.body.classList.toggle('dark-mode');
+}

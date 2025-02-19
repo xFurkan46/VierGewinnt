@@ -132,7 +132,7 @@ button:hover {
 }
 
 .modal-content {
-    background-color: #fefefe;
+    background-color: #ffffff;
     margin: 15% auto; /* 15% vom oberen Rand und zentriert */
     padding: 20px;
     border: 1px solid #888;
@@ -207,4 +207,64 @@ button:hover {
 .win-counter .player span {
     font-size: 1.2em;
     color: #333;
+}
+
+/* Animation for winning cells */
+@keyframes win-highlight {
+    0% { background-color: #bb5c5c; }
+    50% { background-color: #ffeb3b; transform: scale(1.1); }
+    100% { background-color: #8a3434; transform: scale(1); }
+}
+
+.win-cell {
+    animation: win-highlight 1s infinite;
+}
+
+/* Dark mode styles */
+body.dark-mode {
+    background: linear-gradient(135deg, #2c3e50 25%, #4ca1af 100%);
+    color: #0a2025;
+}
+
+body.dark-mode .board {
+    background: #34495e;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+}
+
+body.dark-mode .cell {
+    background: #2c3e50;
+    border: 2px solid #ecf0f1;
+    color: #ecf0f1;
+}
+
+body.dark-mode h1, body.dark-mode #status, body.dark-mode .win-counter h2, body.dark-mode .win-counter .player span {
+    color: #1e3b42;
+}
+
+body.dark-mode #restart-button, body.dark-mode #back-to-selection a, body.dark-mode button {
+    background: #3498db;
+}
+
+body.dark-mode #restart-button:hover, body.dark-mode #back-to-selection a:hover, body.dark-mode button:hover {
+    background: #2980b9;
+}
+
+/* Toggle switch for dark mode */
+.dark-mode-toggle {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background: #4CAF50;
+    color: rgb(255, 255, 255);
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    cursor: pointer;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: background 0.3s, transform 0.3s;
+}
+
+.dark-mode-toggle:hover {
+    background: #45a049;
+    transform: scale(1.1);
 }
