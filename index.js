@@ -45,8 +45,8 @@ cells.forEach((cell, index) => {
             return;
         }
 
-        const colIndex = index % cols;
-        for (let rowIndex = rows - 1; rowIndex >= 0; rowIndex--) {
+        const colIndex = index % cols;                    //schaut in welcher Spalte der Spieler seinen Stein legen will
+        for (let rowIndex = rows - 1; rowIndex >= 0; rowIndex--) {  
             const targetCell = cells[rowIndex * cols + colIndex];
             if (targetCell.classList.contains('empty')) {
                 targetCell.classList.remove('empty');
@@ -125,7 +125,7 @@ function checkHorizontalWin() {
 
 
 //funktion check vertikal
-function checkVerticalWin() {
+function checkVerticalWin() {                      //schaut ob die Zellen vertikal von einander dem gleichen Spieler gehören
     for (let row = 0; row < rows - 3; row++) {
         for (let col = 0; col < cols; col++) {
             const cell1 = cells[row * cols + col];
@@ -148,14 +148,14 @@ function checkVerticalWin() {
 }
 
 
-function checkDiagonalWin() {
+function checkDiagonalWin() {                   //schaut ob die Zellen diagonal von einander dem gleichen Spieler gehören
     for (let row = 0; row < rows - 3; row++){
         for (let col = 0; col < cols - 3; col++){
             const cell1 = cells[row * cols + col];
             const cell2 = cells[(row + 1) * cols + col + 1];
             const cell3 = cells[(row + 2) * cols + col + 2];
             const cell4 = cells[(row + 3) * cols + col + 3];
-            if (
+            if (                                //wenn die Zellen dem gleichen Spieler gehören, dann hat der Spieler gewonnen
                 !cell1.classList.contains('empty') &&
                 cell1.classList.contains(currentPlayer) &&
                 cell2.classList.contains(currentPlayer) &&
@@ -171,13 +171,13 @@ function checkDiagonalWin() {
 
 function checkDiagonalWin2() {
     for (let row = 0; row < rows - 3; row++){
-        for (let col = 3; col < cols; col++){
+        for (let col = 3; col < cols; col++){                   //schaut ob die Zellen diagonal von einander dem gleichen Spieler gehören   
             const cell1 = cells[row * cols + col];
-            const cell2 = cells[(row + 1) * cols + col - 1];
-            const cell3 = cells[(row + 2) * cols + col - 2];
-            const cell4 = cells[(row + 3) * cols + col - 3];
+            const cell2 = cells[(row + 1) * cols + col - 1];    
+            const cell3 = cells[(row + 2) * cols + col - 2];    
+            const cell4 = cells[(row + 3) * cols + col - 3];    
             
-            if (
+            if (                                            //wenn die Zellen dem gleichen Spieler gehören, dann hat der Spieler gewonnen
                 !cell1.classList.contains('empty') &&
                 cell1.classList.contains(currentPlayer) &&
                 cell2.classList.contains(currentPlayer) &&
@@ -206,7 +206,7 @@ window.addEventListener('load', () => {          // Initialisiere das Spiel beim
 //cleart das board und setzt die Spielerzüge zurück
 function resetGame() {
     cells.forEach(cell => {
-        cell.classList.remove('player1', 'player2', 'fall');
+        cell.classList.remove('player1', 'player2', 'fall');        
         cell.classList.add('empty');
     });
 
@@ -245,7 +245,7 @@ function updateWinCounter() {
 
 
 function makeMove(cell) {
-    if (currentPlayer === 'player1') {
+    if (currentPlayer === 'player1') {        //zählt die Züge der Spieler
         player1Moves++;
     } else {
         player2Moves++;
@@ -274,16 +274,16 @@ function isBoardFull() {
 
 
 function saveToLocalStorage () {
-    localStorage.setItem('player1Wins', player1Wins);
+    localStorage.setItem('player1Wins', player1Wins);                 //speichert die Siege der Spieler und die Anzahl der Züge
     localStorage.setItem('player2Wins', player2Wins);
     localStorage.setItem('player1Moves', player1Moves);
     localStorage.setItem('player2Moves', player2Moves);
 }
 
 function loadFromLocalStorage() {                                       
-    player1Wins = parseInt(localStorage.getItem('player1Wins')) || 0;
-    player2Wins = parseInt(localStorage.getItem('player2Wins')) || 0;
-    player1Moves = parseInt(localStorage.getItem('player1Moves')) || 0;
+    player1Wins = parseInt(localStorage.getItem('player1Wins')) || 0;   // parseInt() wandelt den Wert in eine Zahl um
+    player2Wins = parseInt(localStorage.getItem('player2Wins')) || 0;   
+    player1Moves = parseInt(localStorage.getItem('player1Moves')) || 0; 
     player2Moves = parseInt(localStorage.getItem('player2Moves')) || 0;
     updateWinCounter();
     updateMoveCounter();
@@ -313,9 +313,10 @@ restartGameButton.addEventListener('click', () => {         //restart button
     resetGame();
 });
 
+//funktioniert noch nicht
 function highlightWinningCells(winningCells) {
     winningCells.forEach(cell => {
-        cell.classList.add('winning-cell');
+        cell.classList.add('winning-cell');     
     });
 }
 

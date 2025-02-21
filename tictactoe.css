@@ -1,20 +1,20 @@
 body {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background: linear-gradient(135deg, #5f7db6 25%, #cfdef3 100%);
-    margin: 0;
-    padding: 0;
-    height: 100vh;
-    justify-content: center;
+    display: flex; /* Flexbox-Layout */
+    flex-direction: column; /* Anordnung in Spaltenrichtung */
+    align-items: center; /* Zentriert die Elemente horizontal */
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Schriftfamilie */
+    background: linear-gradient(135deg, #5f7db6 25%, #cfdef3 100%); /* Hintergrundverlauf */
+    margin: 0; /* Entfernt den Standardrand */
+    padding: 0; /* Entfernt die Standardauffüllung */
+    height: 100vh; /* Volle Höhe des Ansichtsfensters */
+    justify-content: center; /* Zentriert die Elemente vertikal */
 }
 
 .container {
-    display: flex;
-    justify-content: center;
-    align-items: flex-start;
-    gap: 20px;
+    display: flex; /* Flexbox-Layout */
+    justify-content: center; /* Zentriert die Elemente horizontal */
+    align-items: flex-start; /* Richtet die Elemente vertikal am Anfang aus */
+    gap: 20px; /* Abstand zwischen den Elementen */
 }
 
 .x-player {
@@ -26,105 +26,105 @@ body {
 }
 
 h1 {
-    color: #333;
-    margin-bottom: 20px;
-    font-size: 2.5em;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+    color: #333; /* Textfarbe */
+    margin-bottom: 20px; /* Abstand unter der Überschrift */
+    font-size: 2.5em; /* Schriftgröße */
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1); /* Textschatten */
 }
 
 .board {
-    display: grid;
-    grid-template-columns: repeat(3, 100px);
-    grid-template-rows: repeat(3, 100px);
-    gap: 10px;
-    margin: 20px;
-    padding: 10px;
-    background: #fff;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    display: grid; /* Rasterlayout */
+    grid-template-columns: repeat(3, 100px); /* 3 Spalten à 100px */
+    grid-template-rows: repeat(3, 100px); /* 3 Reihen à 100px */
+    gap: 10px; /* Abstand zwischen den Zellen */
+    margin: 20px; /* Abstand um das Raster */
+    padding: 10px; /* Innenabstand des Rasters */
+    background: #fff; /* Hintergrundfarbe */
+    border-radius: 10px; /* Abgerundete Ecken */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Schattenwurf */
 }
 
 .cell {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 100px;
-    height: 100px;
-    background: white;
-    border: 2px solid #333;
-    font-size: 3em; /* Erhöhte Schriftgröße für X und O */
-    cursor: pointer;
-    border-radius: 10px;
+    display: flex; /* Flexbox-Layout */
+    justify-content: center; /* Zentriert den Inhalt horizontal */
+    align-items: center; /* Zentriert den Inhalt vertikal */
+    width: 100px; /* Breite der Zelle */
+    height: 100px; /* Höhe der Zelle */
+    background: white; /* Hintergrundfarbe */
+    border: 2px solid #333; /* Rahmen */
+    font-size: 3em; /* Schriftgröße für X und O */
+    cursor: pointer; /* Mauszeiger als Zeiger */
+    border-radius: 10px; /* Abgerundete Ecken */
 }
 
 .cell:hover {
-    background: #d1e7ff;
-    transform: scale(1.05);
+    background: #d1e7ff; /* Hintergrundfarbe beim Überfahren */
+    transform: scale(1.05); /* Vergrößerung beim Überfahren */
 }
 
 #restart-button {
-    padding: 10px 20px;
-    margin-top: 10px;
-    background: #4CAF50;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
+    padding: 10px 20px; /* Innenabstand */
+    margin-top: 10px; /* Abstand oben */
+    background: #4CAF50; /* Hintergrundfarbe */
+    color: white; /* Textfarbe */
+    border: none; /* Kein Rahmen */
+    border-radius: 5px; /* Abgerundete Ecken */
+    cursor: pointer; /* Mauszeiger als Zeiger */
 }
 
 #restart-button:hover {
-    background: #45a049;
-    transform: scale(1.05);
+    background: #45a049; /* Hintergrundfarbe beim Überfahren */
+    transform: scale(1.05); /* Vergrößerung beim Überfahren */
 }
 
 #status {
-    margin-top: 20px;
-    font-size: 1.2em;
-    color: #333;
-    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+    margin-top: 20px; /* Abstand oben */
+    font-size: 1.2em; /* Schriftgröße */
+    color: #333; /* Textfarbe */
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1); /* Textschatten */
 }
 
 #back-to-selection {
-    text-align: center;
-    margin-top: 20px;
+    text-align: center; /* Text zentrieren */
+    margin-top: 20px; /* Abstand oben */
 }
 
 #back-to-selection a {
-    display: inline-block;
-    padding: 10px 20px;
-    text-decoration: none;
-    color: white;
-    background: #4CAF50;
-    font-size: 20px;
-    border-radius: 5px;
+    display: inline-block; /* Inline-Block-Element */
+    padding: 10px 20px; /* Innenabstand */
+    text-decoration: none; /* Keine Textdekoration */
+    color: white; /* Textfarbe */
+    background: #4CAF50; /* Hintergrundfarbe */
+    font-size: 20px; /* Schriftgröße */
+    border-radius: 5px; /* Abgerundete Ecken */
 }
 
 #back-to-selection a:hover {
-    background: #45a049;
-    transform: scale(1.05);
+    background: #45a049; /* Hintergrundfarbe beim Überfahren */
+    transform: scale(1.05); /* Vergrößerung beim Überfahren */
 }
 
 button {
-    padding: 10px 20px;
-    border: none;
-    border-radius: 5px;
-    background-color: #235285;
-    color: #ffffff;
-    cursor: pointer;
-    margin: 5px;
+    padding: 10px 20px; /* Innenabstand */
+    border: none; /* Kein Rahmen */
+    border-radius: 5px; /* Abgerundete Ecken */
+    background-color: #235285; /* Hintergrundfarbe */
+    color: #ffffff; /* Textfarbe */
+    cursor: pointer; /* Mauszeiger als Zeiger */
+    margin: 5px; /* Abstand */
 }
 
 button:hover {
-    background-color: #0056b3;
-    transform: scale(1.05);
+    background-color: #0056b3; /* Hintergrundfarbe beim Überfahren */
+    transform: scale(1.05); /* Vergrößerung beim Überfahren */
 }
 
 .modal {
     display: none; /* Standardmäßig ausgeblendet */
     position: fixed; /* Bleibt an Ort und Stelle */
     z-index: 1; /* Über allen anderen Elementen */
-    left: 0;
-    top: 0;
+    left: 0; /* Links ausgerichtet */
+    top: 0; /* Oben ausgerichtet */
     width: 100%; /* Volle Breite */
     height: 100%; /* Volle Höhe */
     overflow: auto; /* Scrollen bei Bedarf */
@@ -132,84 +132,84 @@ button:hover {
 }
 
 .modal-content {
-    background-color: #ffffff;
+    background-color: #ffffff; /* Hintergrundfarbe */
     margin: 15% auto; /* 15% vom oberen Rand und zentriert */
-    padding: 20px;
-    border: 1px solid #888;
-    width: 80%; /* Kann je nach Bildschirmgröße variieren */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtiler Schatten für Tiefe */
-    border-radius: 10px; /* Abgerundete Ecken für ein glatteres Aussehen */
+    padding: 20px; /* Innenabstand */
+    border: 1px solid #888; /* Rahmen */
+    width: 80%; /* Breite */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Schattenwurf */
+    border-radius: 10px; /* Abgerundete Ecken */
     text-align: center; /* Text zentrieren */
 }
 
 .close-button {
-    color: #aaa;
-    float: right;
-    font-size: 28px;
-    font-weight: bold;
+    color: #aaa; /* Farbe */
+    float: right; /* Rechts ausgerichtet */
+    font-size: 28px; /* Schriftgröße */
+    font-weight: bold; /* Fettschrift */
 }
 
 .close-button:hover,
 .close-button:focus {
-    color: black;
-    text-decoration: none;
-    cursor: pointer;
+    color: black; /* Farbe beim Überfahren und Fokus */
+    text-decoration: none; /* Keine Textdekoration */
+    cursor: pointer; /* Mauszeiger als Zeiger */
 }
 
 #victory-message {
-    font-size: 24px;
-    font-weight: bold;
-    margin-top: 20px;
+    font-size: 24px; /* Schriftgröße */
+    font-weight: bold; /* Fettschrift */
+    margin-top: 20px; /* Abstand oben */
 }
 
 #trophy-image {
-    width: 100px;
-    height: auto;
-    margin: 20px auto 0; /* Bild zentrieren */
+    width: 100px; /* Breite */
+    height: auto; /* Automatische Höhe */
+    margin: 20px auto 0; /* Zentriert das Bild */
 }
 
 .win-counter {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 10px;
-    background: #c3dddd;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    position: fixed; /* Ändern zu fixed, um es stabil zu halten */
-    right: 35px; /* Positionieren rechts vom Spielfeld */
-    top: 50%; /* Vertikal zentrieren */
+    display: flex; /* Flexbox-Layout */
+    flex-direction: column; /* Anordnung in Spaltenrichtung */
+    align-items: center; /* Zentriert die Elemente horizontal */
+    padding: 10px; /* Innenabstand */
+    background: #c3dddd; /* Hintergrundfarbe */
+    border-radius: 10px; /* Abgerundete Ecken */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Schattenwurf */
+    position: fixed; /* Fixiert die Position */
+    right: 35px; /* Positioniert rechts vom Spielfeld */
+    top: 50%; /* Vertikal zentriert */
     transform: translateY(-50%); /* Perfekte Zentrierung */
-    min-width: 150px; /* Mindestbreite sicherstellen */
+    min-width: 150px; /* Mindestbreite */
 }
 
 @media (max-width: 768px) {
     .win-counter {
-        position: static; /* Ändern zu static für kleine Bildschirme */
-        transform: none; /* Transform entfernen */
-        margin-top: 20px; /* Etwas Abstand nach oben hinzufügen */
+        position: static; /* Ändert die Position zu statisch für kleine Bildschirme */
+        transform: none; /* Entfernt die Transformation */
+        margin-top: 20px; /* Fügt Abstand oben hinzu */
     }
 }
 
 .win-counter h2 {
-    margin: 0;
-    font-size: 1.5em;
-    color: #333;
+    margin: 0; /* Kein Abstand */
+    font-size: 1.5em; /* Schriftgröße */
+    color: #333; /* Textfarbe */
 }
 
 .win-counter .player {
-    display: flex;
-    justify-content: space-between;
-    width: 100%;
-    margin-top: 10px;
+    display: flex; /* Flexbox-Layout */
+    justify-content: space-between; /* Verteilt den Platz zwischen den Elementen */
+    width: 100%; /* Volle Breite */
+    margin-top: 10px; /* Abstand oben */
 }
 
 .win-counter .player span {
-    font-size: 1.2em;
-    color: #333;
+    font-size: 1.2em; /* Schriftgröße */
+    color: #333; /* Textfarbe */
 }
 
-/* Animation for winning cells */
+/* Animation für gewinnende Zellen */
 @keyframes win-highlight {
     0% { background-color: #bb5c5c; }
     50% { background-color: #ffeb3b; transform: scale(1.1); }
@@ -217,10 +217,10 @@ button:hover {
 }
 
 .win-cell {
-    animation: win-highlight 1s infinite;
+    animation: win-highlight 1s infinite; /* Endlose Animation */
 }
 
-/* Dark mode styles */
+/* Dunkelmodus-Stile */
 body.dark-mode {
     background: linear-gradient(135deg, #2c3e50 25%, #4ca1af 100%);
     color: #0a2025;
@@ -249,22 +249,21 @@ body.dark-mode #restart-button:hover, body.dark-mode #back-to-selection a:hover,
     background: #2980b9;
 }
 
-/* Toggle switch for dark mode */
+/* Umschalter für den Dunkelmodus */
 .dark-mode-toggle {
-    position: fixed;
-    top: 20px;
-    right: 20px;
-    background: #4CAF50;
-    color: rgb(255, 255, 255);
-    border: none;
-    border-radius: 5px;
-    padding: 10px 20px;
-    cursor: pointer;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    transition: background 0.3s, transform 0.3s;
+    position: fixed; /* Fixiert die Position */
+    top: 20px; /* Abstand vom oberen Rand */
+    right: 20px; /* Abstand vom rechten Rand */
+    background: #4CAF50; /* Hintergrundfarbe */
+    color: rgb(255, 255, 255); /* Textfarbe */
+    border: none; /* Kein Rahmen */
+    border-radius: 5px; /* Abgerundete Ecken */
+    padding: 10px 20px; /* Innenabstand */
+    cursor: pointer; /* Mauszeiger als Zeiger */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Schattenwurf */
 }
 
 .dark-mode-toggle:hover {
-    background: #45a049;
-    transform: scale(1.1);
+    background: #45a049; /* Hintergrundfarbe beim Überfahren */
+    transform: scale(1.1); /* Vergrößerung beim Überfahren */
 }
