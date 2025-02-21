@@ -2,7 +2,7 @@
 :root {
     --primary-color: #4CAF50;
     --secondary-color: #45a049;
-    --background-gradient: linear-gradient(135deg, #e0e0e0 25%, #c0c0c0 100%);
+    --background-gradient: linear-gradient(135deg, #fccd87 25%, #e0c7c7 100%);
     --text-color: #222;
     --card-background: white;
     --card-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
@@ -100,8 +100,11 @@ h1 {
 
 .tictactoe-card {
     background: url('tic-tac-toe.png') no-repeat center center;
-    background-size: cover;
+    background-size: contain;
     color: white;
+    width: 240px;
+    height: 200px; /* Adjusted height to match the viergewinnt-card */
+    border-radius: 10%;
 }
 
 .tictactoe-title {
@@ -118,9 +121,12 @@ h1 {
 }
 
 .viergewinnt-card {
-    background: url('vier-gewinnt.png') no-repeat center center;
-    background-size: cover;
+    background: url('vier-gewinntt.PNG') no-repeat center center;
+    background-size: contain;
     color: white;
+    width: 240px;
+    height: 200px; /* Adjusted height to fit the image better */
+    border-radius: 10%;
 }
 
 .viergewinnt-title {
