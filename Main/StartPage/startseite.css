@@ -99,7 +99,7 @@ h1 {
 }
 
 .tictactoe-card {
-    background: url('tic-tac-toe.png') no-repeat center center;
+    background: url('../images/tic-tac-toe.png') no-repeat center center;
     background-size: contain;
     color: white;
     width: 240px;
@@ -121,7 +121,7 @@ h1 {
 }
 
 .viergewinnt-card {
-    background: url('vier-gewinntt.PNG') no-repeat center center;
+    background: url('../images/vier-gewinntt.PNG') no-repeat center center;
     background-size: contain;
     color: white;
     width: 240px;

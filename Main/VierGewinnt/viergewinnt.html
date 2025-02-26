@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vier Gewinnt</title>
+    <link rel="stylesheet" href="viergewinnt.css">
+    <script src="viergewinnt.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.4.0/dist/confetti.browser.min.js"></script>
+</head>
+<body>
+
+    <div id="container">        
+        <div id="game-board"></div>
+        <div id="sidebar">
+            <button id="restart-button">Restart Game</button>
+            <h1 style="text-align: center;">4 Gewinnt</h1>
+
+            <div id="win-counter" style="text-align: center; margin-top: 0px;">
+                <p>Player 1 Wins: <span id="player1-wins">0</span></p>
+                <p>Player 2 Wins: <span id="player2-wins">0</span></p>
+                <button id="reset-win-counter" style="margin-top: 10px;">Reset Win Counter</button>
+            </div>
+
+            <div id="current-player" style="text-align: center; margin-top: 20px;">
+                Current Player: <span id="current-player-name" style="font-weight: bold;"></span>
+            </div>
+            <div id="move-counter" style="text-align: center; margin-top: 20px;">
+                <p>Player 1 Moves: <span id="player1-moves">0</span></p>    
+                <p>Player 2 Moves: <span id="player2-moves">0</span></p>
+            </div>
+        </div>
+        
+    </div>
+
+    <div id="victory-modal" class="modal" >
+        <div class="modal-content">
+            <span class="close-button">&times;</span>
+            <p id ="victory-message"></p>
+            <img id="trophy-image" src="../images/trophy.png" alt="Trophy">
+            <button id="restart-game-button">Play Again</button>
+        </div>
+    </div>
+
+    <div id="back-to-selection">
+        <a href="../StartPage/startseite.html">Zurück zur Minispiel-Auswahl</a>
+    </div>
+    
+    <div id="victory-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-button">&times;</span>
+            <p id="victory-message"></p>
+            <img id="trophy-image" src="../images/trophy.png" alt="Trophy">
+            <button id="restart-game-button">Play Again</button>
+        </div>
+    </div>
+    
+</body>
+</html>
